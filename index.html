@@ -1,75 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Approval Engine – Flexible, Backend-First Approval</title>
-  <meta name="description" content="API-first approval engine with dynamic approver, idempotent backend, and audit-ready design." />
-
+  <title>Approval Engine — SaaS Approval Platform</title>
   <style>
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      color: #111;
-      background: #fafafa;
-      line-height: 1.6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
     }
     header {
-      padding: 80px 20px;
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white;
+      padding: 96px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #0f172a, #020617);
-      color: #fff;
     }
     header h1 {
-      font-size: 42px;
+      font-size: 44px;
       margin-bottom: 16px;
     }
     header p {
       font-size: 18px;
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 32px;
-      color: #cbd5f5;
+      line-height: 1.6;
     }
-    .cta {
+    .btn {
       display: inline-block;
-      background: #4f46e5;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
+      background: white;
+      color: #2563eb;
+      padding: 14px 32px;
+      border-radius: 12px;
       font-weight: 600;
+      text-decoration: none;
     }
     section {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 64px 20px;
+      padding: 80px 20px;
+      max-width: 1120px;
+      margin: auto;
     }
     h2 {
-      font-size: 32px;
-      margin-bottom: 24px;
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+    .muted {
+      color: #475569;
+      max-width: 720px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
     }
     .card {
       background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
     }
-    pre {
-      background: #020617;
-      color: #e5e7eb;
-      padding: 20px;
-      border-radius: 10px;
-      overflow-x: auto;
+    .card h3 {
+      margin-top: 0;
+    }
+    .pricing .price {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 12px 0;
     }
     footer {
-      padding: 40px 20px;
+      background: #020617;
+      color: #cbd5f5;
       text-align: center;
-      color: #64748b;
+      padding: 48px 20px;
     }
   </style>
 </head>
@@ -78,93 +82,122 @@
 <header>
   <h1>Approval Engine</h1>
   <p>
-    Backend-first approval engine with dynamic approver resolution,
-    idempotent API, and audit-ready workflow — without BPMN.
+    Platform approval fleksibel untuk semua aplikasi bisnis.  
+    Tanpa hardcode approver. Tanpa workflow rumit.  
+    Aman, rapi, dan siap skala enterprise.
   </p>
-  <a class="cta" href="#contact">Request Demo</a>
+  <a href="#" class="btn">Request Demo</a>
 </header>
 
 <section>
-  <h2>The Problem</h2>
+  <h2>Masalah Umum Approval di Sistem Bisnis</h2>
   <div class="grid">
-    <div class="card">Approval logic hardcoded in backend</div>
-    <div class="card">Every change requires redeploy</div>
-    <div class="card">Approver depends on project, role, context</div>
-    <div class="card">Double submit & race condition bugs</div>
+    <div class="card">Approver di-hardcode sehingga sulit berubah saat struktur organisasi atau project berubah.</div>
+    <div class="card">Approval berbeda-beda tergantung project, divisi, atau kondisi tertentu.</div>
+    <div class="card">Approval paralel dan berjenjang sulit dikelola dengan rapi.</div>
+    <div class="card">Double submit menyebabkan approval ganda dan data tidak konsisten.</div>
+    <div class="card">Tidak ada audit trail yang jelas saat terjadi dispute atau audit.</div>
   </div>
 </section>
 
 <section>
-  <h2>The Solution</h2>
-  <p>
-    Approval Engine separates approval logic from business code.
-    Approval flow is configuration-driven and resolved at runtime.
+  <h2>Solusi: Approval Engine</h2>
+  <p class="muted">
+    Approval Engine menangani seluruh proses persetujuan secara terpusat,
+    fleksibel, dan aman — tanpa membebani aplikasi Anda dengan logika kompleks.
   </p>
 
   <div class="grid">
     <div class="card">
-      <strong>Flexible Approval</strong><br/>
-      Sequential, parallel (ALL / ANY), conditional
+      <h3>Sequential Approval</h3>
+      <p>Approval berjenjang dan terurut untuk proses formal seperti finance, HR, dan procurement.</p>
     </div>
     <div class="card">
-      <strong>Dynamic Approver</strong><br/>
-      Resolver based on project, role, or owner
+      <h3>Parallel Approval</h3>
+      <p>Beberapa pihak dapat menyetujui secara bersamaan dengan aturan semua setuju atau salah satu cukup.</p>
     </div>
     <div class="card">
-      <strong>Backend-Safe</strong><br/>
-      Idempotent API & double submit protection
+      <h3>Dynamic Approver</h3>
+      <p>Approver ditentukan otomatis berdasarkan project, divisi, role, atau kepemilikan data.</p>
     </div>
     <div class="card">
-      <strong>Audit-Ready</strong><br/>
-      Full approval history & traceability
+      <h3>Configurable Approval</h3>
+      <p>Aturan approval berbasis konfigurasi sehingga mudah diubah tanpa mengubah aplikasi.</p>
+    </div>
+    <div class="card">
+      <h3>Audit Trail Lengkap</h3>
+      <p>Semua aktivitas terekam: siapa menyetujui, kapan, keputusan apa, dan hasil akhirnya.</p>
+    </div>
+    <div class="card">
+      <h3>Anti Double Submit</h3>
+      <p>Sistem memastikan satu aksi hanya diproses satu kali, walau terjadi retry atau klik berulang.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>How It Works</h2>
-  <pre>
-Client → Approval Engine API
-       → Resolve approver
-       → Execute approval flow
-       → Return approved / rejected
-  </pre>
-</section>
-
-<section>
-  <h2>Example Workflow Config</h2>
-  <pre>
-{
-  "type": "parallel",
-  "mode": "ALL",
-  "steps": [
-    { "resolver": "project_manager" },
-    { "resolver": "finance" }
-  ]
-}
-  </pre>
-</section>
-
-<section>
-  <h2>Use Cases</h2>
+  <h2>Use Case Nyata</h2>
   <div class="grid">
-    <div class="card">Project & budget approval</div>
-    <div class="card">Purchase & expense approval</div>
-    <div class="card">Feature & release approval</div>
-    <div class="card">SaaS multi-tenant approval flow</div>
+    <div class="card">
+      <h3>Project Management</h3>
+      <p>Approval aktivitas project dengan approver berbeda di tiap project.</p>
+    </div>
+    <div class="card">
+      <h3>Finance & Accounting</h3>
+      <p>Expense, budget, dan pembayaran vendor dengan approval berlapis.</p>
+    </div>
+    <div class="card">
+      <h3>HR & People Ops</h3>
+      <p>Cuti, promosi, mutasi, dan rekrutmen dengan alur jelas dan terdokumentasi.</p>
+    </div>
+    <div class="card">
+      <h3>Procurement</h3>
+      <p>Purchase request, kontrak, dan vendor onboarding.</p>
+    </div>
+    <div class="card">
+      <h3>SaaS & Internal Tools</h3>
+      <p>Approval perubahan data sensitif dan eskalasi akses.</p>
+    </div>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Get Started</h2>
-  <p>
-    Build approval once. Reuse everywhere.
+<section>
+  <h2>Untuk Enterprise & Organisasi Besar</h2>
+  <p class="muted">
+    Dibangun untuk kebutuhan governance, kepatuhan, dan kontrol risiko operasional.
   </p>
-  <a class="cta" href="mailto:hello@example.com">Contact Us</a>
+
+  <div class="grid">
+    <div class="card">Audit & compliance siap untuk pemeriksaan internal maupun eksternal.</div>
+    <div class="card">Satu approval engine untuk banyak sistem bisnis.</div>
+    <div class="card">Approval fleksibel tanpa perubahan kode saat struktur berubah.</div>
+    <div class="card">Pilihan cloud, private cloud, atau on-premise.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Pricing</h2>
+  <div class="grid pricing">
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">Gratis</div>
+      <p>Untuk proof of concept dan tim kecil.</p>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <div class="price">Rp 299K / bulan</div>
+      <p>Untuk bisnis yang butuh fleksibilitas penuh dan audit trail.</p>
+    </div>
+    <div class="card">
+      <h3>Enterprise</h3>
+      <div class="price">Custom</div>
+      <p>Multi-tenant, SLA, compliance, dan integrasi khusus.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  © 2026 Approval Engine. Built for backend engineers.
+  <p>Approval Engine © 2026 — Approval yang rapi, aman, dan fleksibel.</p>
 </footer>
 
 </body>
